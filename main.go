@@ -5,15 +5,28 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
+	"time"
 
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// all element route
 func main() {
+	r := gin.Default()
+	r.Use(cors.New(
+		cors.Config{
+			AllowOrigins:     []string{"*"},
+			AllowMethods:     []string{"GET", "POST"},
+			AllowCredentials: true,
+			MaxAge:           12 * time.Hour,
+		}))
 	if err := godotenv.Load(); err != nil {
 		log.Println("No .env file found")
 	}
@@ -50,5 +63,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%s\n", jsonData)
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, jsonData)
+	})
+	r.Run()
 }
