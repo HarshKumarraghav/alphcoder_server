@@ -2,8 +2,10 @@ package main
 
 import (
 	"os"
+	"time"
 
 	routes "example.com/alphacoder-server/routes"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,6 +15,13 @@ func main() {
 		port = "8080"
 	}
 	router := gin.New()
+	router.Use(cors.New(
+		cors.Config{
+			AllowOrigins:     []string{"*"},
+			AllowMethods:     []string{"GET", "POST"},
+			AllowCredentials: true,
+			MaxAge:           12 * time.Hour,
+		}))
 	router.Use(gin.Logger())
 	routes.AuthRoutes(router)
 	routes.UserRoutes(router)
