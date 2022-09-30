@@ -13,5 +13,5 @@ func UserRoutes(incomingRoutes *gin.Engine) {
 	incomingRoutes.GET("/sheets/frazsheet", controller.Frazsheet())
 	incomingRoutes.GET("/sheets/dsa450sheet", controller.Sheet450())
 	incomingRoutes.GET("/sheets/apnasheet", controller.ApnacollegeSheet())
-	incomingRoutes.GET("/sheets/bind75sheet", controller.SheetBlind75())
+	incomingRoutes.GET("/sheets/blind75sheet", controller.SheetBlind75())
 }
