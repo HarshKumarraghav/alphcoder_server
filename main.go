@@ -14,15 +14,14 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	router := gin.New()
+	router := gin.Default()
 	router.Use(cors.New(
 		cors.Config{
 			AllowOrigins:     []string{"*"},
-			AllowMethods:     []string{"GET", "POST"},
+			AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
 			AllowCredentials: true,
 			MaxAge:           12 * time.Hour,
 		}))
-	router.Use(gin.Logger())
 	routes.AuthRoutes(router)
 	routes.UserRoutes(router)
 	router.GET("/api-1", func(c *gin.Context) {
