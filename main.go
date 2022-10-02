@@ -19,7 +19,7 @@ func main() {
 		cors.Config{
 			AllowOrigins:     []string{"*"},
 			AllowHeaders:     []string{"Origin"},
-			AllowMethods:     []string{"*"},
+			AllowMethods:     []string{"POST, GET, OPTIONS, PUT, DELETE"},
 			AllowCredentials: true,
 			MaxAge:           12 * time.Hour,
 		}))
