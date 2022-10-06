@@ -29,7 +29,7 @@ func AllQuesion() gin.HandlerFunc {
 
 		recordPerPage, err := strconv.Atoi(c.Query("recordPerPage"))
 		if err != nil || recordPerPage < 1 {
-			recordPerPage = 200000
+			recordPerPage = 10
 		}
 		page, err1 := strconv.Atoi(c.Query("page"))
 		if err1 != nil || page < 1 {
@@ -76,7 +76,7 @@ func Frazsheet() gin.HandlerFunc {
 
 		recordPerPage, err := strconv.Atoi(c.Query("recordPerPage"))
 		if err != nil || recordPerPage < 1 {
-			recordPerPage = 200000
+			recordPerPage = 10
 		}
 		page, err1 := strconv.Atoi(c.Query("page"))
 		if err1 != nil || page < 1 {
@@ -123,7 +123,7 @@ func Sheet450() gin.HandlerFunc {
 
 		recordPerPage, err := strconv.Atoi(c.Query("recordPerPage"))
 		if err != nil || recordPerPage < 1 {
-			recordPerPage = 200000
+			recordPerPage = 10
 		}
 		page, err1 := strconv.Atoi(c.Query("page"))
 		if err1 != nil || page < 1 {
@@ -170,7 +170,7 @@ func ApnacollegeSheet() gin.HandlerFunc {
 
 		recordPerPage, err := strconv.Atoi(c.Query("recordPerPage"))
 		if err != nil || recordPerPage < 1 {
-			recordPerPage = 200000
+			recordPerPage = 10
 		}
 		page, err1 := strconv.Atoi(c.Query("page"))
 		if err1 != nil || page < 1 {
@@ -217,7 +217,7 @@ func SheetBlind75() gin.HandlerFunc {
 
 		recordPerPage, err := strconv.Atoi(c.Query("recordPerPage"))
 		if err != nil || recordPerPage < 1 {
-			recordPerPage = 200000
+			recordPerPage = 10
 		}
 		page, err1 := strconv.Atoi(c.Query("page"))
 		if err1 != nil || page < 1 {
